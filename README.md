@@ -3,9 +3,7 @@
 LocalLanguageDev is a small local toolkit for repository Q&A and code-application workflows.
 
 It includes:
-- `02_app_to_md.py` (repo -> markdown context export)
-- `py_scripts/in/02_response_to_py.py` (markdown code blocks -> files)
-- `mainMixer.py` (interactive/model-driven orchestration)
+- `main.py` (interactive/model-driven orchestration)
 
 ## Use Cases
 - Ask questions about a local project repo
@@ -23,19 +21,16 @@ py -m pip install -r requirements.txt
 2. Run the mixer:
 
 ```bash
-py mainMixer.py
+py main.py
 ```
 
 3. Or run non-interactively:
 
 ```bash
-py mainMixer.py --repo ../some_project --model gpt-oss:20b --question "Refactor logging setup" --apply
+py main.py --repo ../some_project --model gpt-oss:20b --question "Refactor logging setup" --apply
 ```
 
 ## Notes
-- `mainMixer.py` expects export/apply scripts at:
-  - `py_scripts/out/02_app_to_md.py`
-  - `py_scripts/in/02_response_to_py.py`
 - Run outputs are saved under `qa_runs/`.
 
 
@@ -45,19 +40,30 @@ py mainMixer.py --repo ../some_project --model gpt-oss:20b --question "Refactor 
 
 ## Example CLI
 ```bash
-py  mainMixer.py --repo ../execute_lab/flexi_agent --model gpt-oss:20b --question "Give a short architecture summary and propose one safe refactor." --runs-dir qa_runs_lld_test
+py  main.py --repo ../execute_lab/flexi_agent --model gpt-oss:20b --question "Give a short architecture summary and propose one safe refactor." --runs-dir qa_runs_lld_test
 
 ```
 
 ```bash
-py  mainMixer.py --repo ../execute_lab/flexi_agent --model ornith --runs-dir qa_runs_ornith
+py  main.py --repo ../execute_lab/flexi_agent --model ornith --runs-dir qa_runs_ornith
 ```
 
 ```bash
-py  mainMixer.py --repo ../LocalLanguageDev --model lfm2.5-thinking --runs-dir qa_runs_lfm --hard-mode
+py  main.py --repo ../LocalLanguageDev --model lfm2.5-thinking --runs-dir qa_runs_lfm --hard-mode
 ```
 
 
 ```bash
-py  mainMixer.py --repo ../LocalLanguageDev --model ornith --runs-dir qa_runs_lfm
+py  main.py --repo ../LocalLanguageDev --model ornith --runs-dir qa_runs
 ```
+
+
+```bash
+py  main.py --repo ../LocalLanguageDev --model lfm2.5-thinking --runs-dir qa_runs
+```
+
+
+
+Looking at the guide.md how can we improve main.py, write improvements to app_improvement.md.
+
+
